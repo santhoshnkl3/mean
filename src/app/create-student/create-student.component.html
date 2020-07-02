@@ -1,0 +1,109 @@
+<mat-card>
+  <form (submit)="onSaveStudentData(studentData)" #studentData="ngForm">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="name"
+        [ngModel]="student?.name"
+        #name="ngModel"
+        placeholder="Student Name"
+        required
+      />
+      <mat-error *ngIf="name.invalid">Please Enter a valid name</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="date"
+        name="dateOfBirth"
+        [ngModel]="student?.dateOfBirth"
+        #dateOfBirth="ngModel"
+        required
+      />
+      <mat-error *ngIf="dateOfBirth.invalid">Please Enter a Date</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="email"
+        name="emailId"
+        [ngModel]="student?.emailId"
+        #emailId="ngModel"
+        required
+      />
+      <mat-error *ngIf="emailId.invalid">Please Enter a EmailID</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="textarea"
+        name="address"
+        [ngModel]="student?.address"
+        #address="ngModel"
+        placeholder="Enter the Address"
+        required
+      />
+      <mat-error *ngIf="address.invalid"
+        >Please Enter a valid Address</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        name="phoneNumber"
+        [ngModel]="student?.phoneNumber"
+        #phoneNumber="ngModel"
+        placeholder="Phone Number"
+        required
+      />
+      <mat-error *ngIf="phoneNumber.invalid"
+        >Please Enter a valid Phone Number</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="bloodGroup"
+        [ngModel]="student?.bloodGroup"
+        #bloodGroup="ngModel"
+        placeholder="BloodGroup"
+        required
+      />
+      <mat-error *ngIf="bloodGroup.invalid"
+        >Please Enter a valid Blood Group</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="department"
+        [ngModel]="student?.department"
+        #department="ngModel"
+        placeholder="Department"
+        required
+      />
+      <mat-error *ngIf="department.invalid"
+        >Please Enter a valid Department</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="batch"
+        [ngModel]="student?.batch"
+        #batch="ngModel"
+        placeholder="Batch"
+        required
+      />
+      <mat-error *ngIf="batch.invalid">Please Enter a valid Batch</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">
+      Save
+    </button>
+  </form>
+</mat-card>
