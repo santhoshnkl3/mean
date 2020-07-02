@@ -21,6 +21,7 @@ router.post("", (req, res, next) => {
 });
 
 router.put("/:id", (req, res, next) => {
+  console.log("route matched")
   const student = new Student({
     _id: req.body.id,
     name: req.body.name,
@@ -31,7 +32,7 @@ router.put("/:id", (req, res, next) => {
     department: req.body.department,
     batch: req.body.batch,
   });
-  Student.updateOne({ _id: req.body.id }, student).then((result) => {
+  Student.updateOne({ _id: req.params.id }, student).then((result) => {
     console.log(result);
     res.status(200).json({ message: "Student record Updated Sucessfully" });
   });

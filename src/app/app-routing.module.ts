@@ -11,6 +11,10 @@ const routes: Routes = [{
 {
   path:'create',
   component:CreateStudentComponent
+},
+{
+  path:'edit',
+  component:CreateStudentComponent
 }];
 
 @NgModule({

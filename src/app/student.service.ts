@@ -81,7 +81,7 @@ export class StudentService {
     return this.studentUpdated.asObservable();
   }
   deleteStudentRecord(id: string) {
-    this.http.delete("http://localhost:3000/api/student" + id).subscribe(() => {
+    this.http.delete("http://localhost:3000/api/student/" + id).subscribe(() => {
       const updatedStudentList = this.students.filter(
         (student) => student.id !== id
       );
@@ -111,8 +111,9 @@ export class StudentService {
       id: id,
       emailId: emailId,
     };
+    console.log("matched")
     this.http
-      .put("http://localhost:3000/api/student" + id, studentData)
+      .put("http://localhost:3000/api/student/" + id, studentData)
       .subscribe((res) => {
         console.log(res);
       });
