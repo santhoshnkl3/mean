@@ -7,10 +7,6 @@ const onListening = () => {
   const bind = typeof port === "string" ? "pipe " + port : "port " + port;
   debug("Listening on " + bind);
 };
-app.use(express.static(__dirname + "/dist"));
-app.get("/home", (req, res) => {
-  res.sendFile(path.join(__dirname + "/meanStackApp/index.html"));
-});
 
 app.set("port", port);
 const server = http.createServer(app);

@@ -21,7 +21,7 @@ router.post("", (req, res, next) => {
 });
 
 router.put("/:id", (req, res, next) => {
-  console.log("route matched")
+  console.log("route matched");
   const student = new Student({
     _id: req.body.id,
     name: req.body.name,

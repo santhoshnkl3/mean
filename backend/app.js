@@ -32,9 +32,7 @@ app.use((req, res, next) => {
 
   next();
 });
-app.use('/',(req,res,next)=>{
-  res.status(201).statusMessage("Sucess")
-})
+
 
 app.use("/api/student", studentRoute);
 app.use("/api/user", userRoute);
