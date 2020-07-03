@@ -9,3 +9,11 @@ ul {
   padding: 0;
   display: flex;
 }
+
+.studentApp-menubar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+

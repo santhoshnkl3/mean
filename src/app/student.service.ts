@@ -9,6 +9,7 @@ import { map } from "rxjs/operators";
 export class StudentService {
   private students: Student[] = [];
   private studentUpdated = new Subject<Student[]>();
+
   constructor(private http: HttpClient) {}
 
   getStudentDetail(id: string) {
@@ -81,13 +82,15 @@ export class StudentService {
     return this.studentUpdated.asObservable();
   }
   deleteStudentRecord(id: string) {
-    this.http.delete("http://localhost:3000/api/student/" + id).subscribe(() => {
-      const updatedStudentList = this.students.filter(
-        (student) => student.id !== id
-      );
-      this.students = updatedStudentList;
-      this.studentUpdated.next([...this.students]);
-    });
+    this.http
+      .delete("http://localhost:3000/api/student/" + id)
+      .subscribe(() => {
+        const updatedStudentList = this.students.filter(
+          (student) => student.id !== id
+        );
+        this.students = updatedStudentList;
+        this.studentUpdated.next([...this.students]);
+      });
   }
   updateStudentRecord(
     id: string,
@@ -111,7 +114,7 @@ export class StudentService {
       id: id,
       emailId: emailId,
     };
-    console.log("matched")
+    console.log("matched");
     this.http
       .put("http://localhost:3000/api/student/" + id, studentData)
       .subscribe((res) => {

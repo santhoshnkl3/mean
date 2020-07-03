@@ -1,8 +1,13 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="studentApp-menubar" color="primary">
   <a routerLink="/">Home</a>
-<ul>
-  <li>
-    <a routerLink="/create" >Create a Student Record</a>
-  </li>
-</ul>
+
+  <a routerLink="/create">Create a Student Record</a>
+
+  <a *ngIf="!UserIsAuthenticated" routerLink="/login">Login</a>
+
+  <a *ngIf="!UserIsAuthenticated" routerLink="/signup">SignUp</a>
+
+  <button *ngIf="UserIsAuthenticated" mat-button (click)="onLogout()">
+    logout
+  </button>
 </mat-toolbar>
